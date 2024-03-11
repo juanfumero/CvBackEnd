@@ -9,7 +9,7 @@ export class TasksService {
         {
             id: '1',
             title: 'first task',
-            description: 'prueba',
+            description: 'prueba pildora',
             status: TaskStatus.PENDING
         }
     ];
