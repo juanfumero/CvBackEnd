@@ -8,27 +8,12 @@ import { MailerModule } from '@nestjs-modules/mailer';
     MailerModule.forRoot({
       transport: {
         host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
         auth: {
-          user: 'cvprojectbarcelona@gmail.com', // Coloca tu usuario de correo aquí
-          pass: 'taptmoofkossirxy',    //pass: 'tapt moof koss irxy', // Coloca tu contraseña de correo aquí
+          user: 'cvprojectbarcelona@gmail.com',
+          pass: 'taptmoofkossirxy',   
         }
       }
     }),
-    // MailerModule.forRootAsync({
-    //   useFactory: () => ({
-    //     transport: {
-    //       host: 'smtp.gmail.com',
-    //       port: 465,
-    //       secure: true,
-    //       auth: {
-    //         user: 'cvprojectbarcelona@gmail.com', // Coloca tu usuario de correo aquí
-    //         pass: 'taptmoofkossirxy',    //pass: 'tapt moof koss irxy', // Coloca tu contraseña de correo aquí
-    //       },
-    //     }
-    //   }),
-    // }),
   ],
   controllers: [EmailController],
   providers: [EmailService]
