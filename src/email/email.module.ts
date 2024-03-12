@@ -9,7 +9,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
       transport: {
         host: 'smtp.gmail.com',
         port: 465,
-        secure: false,
+        secure: true,
         auth: {
           user: 'cvprojectbarcelona@gmail.com', // Coloca tu usuario de correo aquí
           pass: 'taptmoofkossirxy',    //pass: 'tapt moof koss irxy', // Coloca tu contraseña de correo aquí
