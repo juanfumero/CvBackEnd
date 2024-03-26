@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Response } from '@nestjs/common';
 import { TasksService } from './tasks.service';
-import { CreateTaskDTO, UpdateTaskDTO } from './dto/task.dto';
+import { CreateTaskDTO, TaskDTO, UpdateTaskDTO } from './dto/task.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -14,9 +14,15 @@ export class TasksController {
         return this.tasksService.getAllTasks()
     }
 
+    @Get(':id')
+    async getUserById(@Param('id') id: string): Promise<TaskDTO> {
+        //return await this.tasksService.getTaskById(id);
+        return await this.tasksService.getTaskById(id);
+    }
+
     @Post()
-    createTask(@Body() newTask: CreateTaskDTO) {
-        return this.tasksService.createTasks(newTask.title, newTask.description);
+    createTask(@Body() newTask: TaskDTO) {
+        return this.tasksService.newTask(newTask);
     }
 
     @Delete(':id')
@@ -25,7 +31,7 @@ export class TasksController {
     }
 
     @Patch(":id")
-    updateTask(@Param('id') id: string, @Body() updateFields: UpdateTaskDTO) {
+    updateTask(@Param('id') id: string, @Body() updateFields: TaskDTO) {
         return this.tasksService.updateTasks(id, updateFields)
     }
 

@@ -12,6 +12,32 @@ export class CreateTaskDTO {
     description: string
 }
 
+export class TaskDTO {
+    readonly id?: string;
+
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(15)
+    title: string
+
+    @IsString()
+    @IsNotEmpty()
+    description: string
+
+    @IsString()
+    @IsOptional()
+    @IsIn([TaskStatus.PENDING, TaskStatus.IN_PROGRESS, TaskStatus.DONE])
+    status?: TaskStatus
+
+    
+    constructor(id: string, title: string, description: string, status: TaskStatus) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+    }
+}
+
 export class UpdateTaskDTO {
     @IsString()
     @IsOptional()
