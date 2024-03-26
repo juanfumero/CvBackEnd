@@ -6,6 +6,11 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 
+export function stringToBoolean(str) {
+  str = str.trim().toLowerCase();  
+  return str === 'true' || str === '1';
+}
+
 @Module({
   imports: [ ConfigModule.forRoot({
     isGlobal: true,
@@ -16,6 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    ssl: stringToBoolean(process.env.POSTGRES_SSL),
     autoLoadEntities: true,
     synchronize: !!process.env.DB_SYNC
   })
