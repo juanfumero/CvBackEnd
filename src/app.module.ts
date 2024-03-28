@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/users.module';
 
 
 export function stringToBoolean(str) {
@@ -14,7 +15,7 @@ export function stringToBoolean(str) {
 @Module({
   imports: [ ConfigModule.forRoot({
     isGlobal: true,
-  }), TasksModule, TypeOrmModule.forRoot({
+  }), TasksModule, UserModule, TypeOrmModule.forRoot({
     type: 'postgres',
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT),
