@@ -32,6 +32,7 @@ export class TaskRepository {
     }
 
     async updateTask(id: string, taskDTO: TaskDTO): Promise<Task> {
+        taskDTO.id = id;
         const updateUser = this.mapper.dtoToEntity(taskDTO);
         await this.taskRepository.update(taskDTO.id, updateUser);
         const options: FindOneOptions<Task> = {

@@ -13,7 +13,7 @@ export class CreateTaskDTO {
 }
 
 export class TaskDTO {
-    readonly id?: string;
+    id?: string;
 
     @IsString()
     @IsNotEmpty()
