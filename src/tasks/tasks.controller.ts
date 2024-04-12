@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Response } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDTO, TaskDTO, UpdateTaskDTO } from './dto/task.dto';
+import { v4 as uuidv4 } from 'uuid';
 
 @Controller('tasks')
 export class TasksController {
@@ -22,6 +23,9 @@ export class TasksController {
 
     @Post()
     createTask(@Body() newTask: TaskDTO) {
+        // Genera un UUID único
+        const uuid = uuidv4();
+        newTask.id = uuid;
         return this.tasksService.newTask(newTask);
     }
 
