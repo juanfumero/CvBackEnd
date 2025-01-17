@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { Task } from "./task.entity";
-import { TaskDTO } from "./dto/task.dto";
+import { Task } from "../entity/task.entity";
+import { TaskDTO } from "../dto/task.dto";
 
 @Injectable()
 export class TaskMapper {

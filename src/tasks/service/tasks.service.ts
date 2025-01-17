@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { Task, TaskStatus } from './task.entity';
-import { TaskDTO, UpdateTaskDTO } from './dto/task.dto';
-import { TaskRepository } from './task.repository';
-import { TaskMapper } from './task.mapper';
+import { Task } from '../entity/task.entity';
+import { TaskDTO } from '../dto/task.dto';
+import { TaskRepository } from '../repository/task.repository';
+import { TaskMapper } from '../mapper/task.mapper';
 
 @Injectable()
 export class TasksService {

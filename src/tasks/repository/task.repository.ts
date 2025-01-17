@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Task } from "./task.entity";
+import { Task } from "../entity/task.entity";
 import { DeleteResult, FindOneOptions, Repository } from "typeorm";
-import { TaskMapper } from "./task.mapper";
-import { TaskDTO } from "./dto/task.dto";
+import { TaskMapper } from "../mapper/task.mapper";
+import { TaskDTO } from "../dto/task.dto";
 
 @Injectable()
 export class TaskRepository {

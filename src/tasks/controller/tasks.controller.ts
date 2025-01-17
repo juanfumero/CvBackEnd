@@ -1,13 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Response } from '@nestjs/common';
-import { TasksService } from './tasks.service';
-import { CreateTaskDTO, TaskDTO, UpdateTaskDTO } from './dto/task.dto';
+import { TasksService } from '../service/tasks.service';
+import { TaskDTO } from '../dto/task.dto';
 import { v4 as uuidv4 } from 'uuid';
 
 @Controller('tasks')
 export class TasksController {
 
     constructor(private tasksService: TasksService) {
-
     }
 
     @Get()
@@ -17,7 +16,6 @@ export class TasksController {
 
     @Get(':id')
     async getUserById(@Param('id') id: string): Promise<TaskDTO> {
-        //return await this.tasksService.getTaskById(id);
         return await this.tasksService.getTaskById(id);
     }
 

@@ -1,4 +1,4 @@
-import { TaskStatus } from "../task.entity"
+import { TaskStatus } from "../entity/task.entity"
 import { IsIn, IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator"
 
 export class CreateTaskDTO {
