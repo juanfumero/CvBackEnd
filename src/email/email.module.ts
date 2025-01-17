@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { EmailController } from './email.controller';
-import { EmailService } from './email.service';
+import { EmailController } from './controller/email.controller';
+import { EmailService } from './service/email.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { ConfigService } from '@nestjs/config';
 import { handleRetry } from '@nestjs/typeorm';

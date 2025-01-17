@@ -14,6 +14,4 @@ export class EmailService {
         text: cuerpo,
       });
     }
-
-    
 }
